@@ -3,21 +3,73 @@
  */
 var employeesList =[
     ];
+var facts = [
+    'Chuck Norris threw a grenade and killed 50 people, then it exploded.',
+    'Chuck Norris counted to infinity. Twice.',
+    'Chuck Norris can kill two stones with one bird.',
+    'Chuck Norris can hear sign language.',
+];
+var chucki=0;
 var employee;
+    function chuck() {
+        alert(facts[chucki]);
+        chucki++;
+        if (chucki==facts.length){
+            chucki=0;
+        }
+    }
     function showList() {
+        var inputValue = document.getElementById("inputValue").value;
+        var propDisp = '';
         var myTable = '<table class="table table-bordered" border ="1"><tr><th>First Name</th><th>Last Name</th><th>Phone</th>' +
             '<th>Salary</th><th>Salary in Euro</th></tr>';
         for (var i in employeesList) {
-            myTable += '<tr><td>' + employeesList[i].firstName + '</td><td>' + employeesList[i].lastName + '</td><td>' +
+            if(inputValue == '') {
+                propDisp = '';
+            }else{
+                propDisp = 'style="display:none"';
+                if(employeesList[i].firstName == inputValue || employeesList[i].lastName == inputValue){
+                    propDisp = '';
+                }
+            }
+
+            myTable += '<tr '+propDisp+'><td>' + employeesList[i].firstName + '</td><td>' + employeesList[i].lastName + '</td><td>' +
                  + employeesList[i].phone + '</td><td>' + employeesList[i].salary + '</td><td>' + employeesList[i].salaryInEuro + '</td><td><button onclick="viewEmployee('+i+')">Vizualizare</button>'
                 + '</td><td><button onclick="deleteEmployee('+i+')">Stergere</button></tr>';
         }
+        myTable += '<tr><td>'+appearFirstName()+'</td><td>'+distinctLastNames()+'</td></tr>';
         myTable += '</table>';
         var container = document.getElementById('listcontainer');
         container.innerHTML = myTable;
     }
-    
-    function viewEmployee(i) {
+
+    function appearFirstName() {
+        var frequency = {};
+        var max = 0;
+        var result;
+        for (var v in employeesList) {
+            frequency[employeesList[v].firstName] = (frequency[employeesList[v].firstName] || 0) + 1;
+            if (frequency[employeesList[v].firstName] > max) {
+                max = frequency[employeesList[v].firstName];
+                result = employeesList[v].firstName;
+            }
+        }
+        return result;
+    }
+
+    function distinctLastNames() {
+        var frequency = {};
+        var numberOfElements = employeesList.length;
+        for (var v in employeesList){
+            frequency[employeesList[v].lastName]= (frequency[employeesList[v].lastName] || 0) + 1;
+        };
+        var count = 0;
+        for (var v in frequency)
+            if(frequency.hasOwnProperty(v))
+                count++;
+        return count;
+    }
+        function viewEmployee(i) {
         alert("First name: " + employeesList[i].firstName + "\nLast Name: " + employeesList[i].lastName);
     }
     function deleteEmployee(i) {

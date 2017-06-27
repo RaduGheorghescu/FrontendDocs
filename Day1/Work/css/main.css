@@ -6,3 +6,16 @@ h1{
     text-align: center;
     color:darkgreen;
 }
+
+#chuck {
+    background-color: black;
+    height: 400px;
+    width: 400px;
+}
+
+#chuck:hover {
+    background-color: transparent;
+    background-image:url('../img/chuck.jpg');
+    height: 400px;
+    width: 400px;
+}
