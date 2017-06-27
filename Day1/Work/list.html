@@ -16,12 +16,64 @@
     <div class="panel-body">
         <div>
             <p>
-                <button onclick="showList()">Show List</button>
+                <button  onclick="showList()">Show List</button>
             </p>
         </div>
         <div id="listcontainer">
 
         </div>
+        <label>Sort By:</label>
+        <select onchange="employeesSort()" id="sortBy">
+            <option value="0">Select</option>
+            <option value="1">Prenume Alfabetic</option>
+            <option value="2">Nume Alfabetic</option>
+            <option value="3">Dupa numarul de telefon</option>
+            <option value="4">Dupa Salariu</option>
+        </select>
+    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading description">
+        View salary sum
+    </div>
+    <div class="panel-body">
+        <button onclick="salarySum()">Show salary sum</button>
+    </div>
+    <div id="sumlabel">
+
+    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading description">
+        Delete last employee
+    </div>
+    <div class="panel-body">
+        <button onclick="deleteLastEmployee()">Delete last employee</button>
+    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading description">
+        Add employee
+    </div>
+    <div class="panel-body">
+        <p>
+            First Name: <input type="text" id="firstName"/>
+        </p>
+        <p>
+            Last Name: <input type="text" id="lastName"/>
+        </p>
+        <p>
+            Phone: <input type="text" id="phone"/>
+        </p>
+        <p>
+            Salary in Lei: <input type="number" id="salary"/>
+            <button onclick="converInEuro()">Convert in Euro</button>
+        </p>
+            Salary in Euro: <input type="number" id="salaryInEuro" disabled>
+        </p>
+        <p>
+            <button onclick="addEmployee()">Add employee</button>
+        </p>
     </div>
 </div>
 <div>
