@@ -3,12 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <title>Demo HR</title>
+    <link rel="stylesheet" type="text/css" href="css/main.css"/>
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
 </head>
 <body>
 <h1>HR Home Page</h1>
 <p style="font-size: 20px; color: red;">This is cool!</p>
-<div id="pagedescription">
+<div id="pagedescription" class="description">
     Aici e locul unde vei fi data afara! NU ajungi la tehnic! SIGUR!
 </div>
+<div id="äppmenu" class="description">
+    <ul class="list-group">
+        <li class="list-group-item"><a href="list.html">Employees list</a> </li>
+    </ul>
+</div>
+<div class="button-group">
+    <button type="button" onclick="showMenu()" class="btm btn-default">Show Menu</button>
+    <button type="button" onclick="hideMenu()" class="btm btn-default">Hide Menu</button>
+</div>
+
+<script>
+    function showMenu() {
+        document.getElementById("appmenu").style.display = "block";
+    }
+    function hideMenu() {
+        document.getElementById("appmenu").style.display = "block";
+    }
+</script>
 </body>
 </html>
